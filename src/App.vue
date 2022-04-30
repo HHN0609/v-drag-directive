@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import {vDrag} from './units/dragDirective'
+import {vDrag} from './directives/dragDirective'
+import { vScale } from './directives/scaleDirective';
 
 </script>
 
 <template>
-<div class="box">
-  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
-  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
-  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
+<div v-scale class="box">
+  <HelloWorld v-scale v-drag="{limit: 0.5, classList:['draging'], dragArea:'parent'}"/>
+  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/> -->
+  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging']}"/> -->
 </div>
 </template>
 
