@@ -7,8 +7,8 @@ import {vDrag} from './units/dragDirective'
 <template>
 <div class="box">
   <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
-  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/> -->
-  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/> -->
+  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
+  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
 </div>
 </template>
 

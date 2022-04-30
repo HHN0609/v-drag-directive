@@ -38,14 +38,29 @@ function mouseUpHandle (event: MouseEvent):void {
 function mouseMoveHandle (event: MouseEvent):void {
     let _x:number = Number(targetElement.getAttribute("_x"))
     let _y:number = Number(targetElement.getAttribute("_y"))
-    if(targetElement.getAttribute("draggingArea") === "parent"){
-        // 被拖动的元素只能只能在父元素内部活动
-        // console.log(parentDOMRect)
-    }
-    // 考虑父元素的宽
     let parentBorderWidth = parseInt(getComputedStyle(parentElement).border)
+    let targetBorderWidth = parseInt(getComputedStyle(targetElement).border)
+    // 考虑父元素的宽
     targetElement.style.top = (event.clientY - _y - parentDOMRect.y - parentBorderWidth) + "px"
     targetElement.style.left = (event.clientX - _x - parentDOMRect.x - parentBorderWidth) + "px"
+
+    // 如果有活动区域限制就启动纠正程序
+    if(targetElement.getAttribute("draggingArea") === "parent"){
+        // 被拖动的元素只能只能在父元素内部活动
+        if(targetElement.offsetTop < 0){
+            targetElement.style.top = "0px"
+        } 
+        if(targetElement.offsetLeft < 0){
+            targetElement.style.left = "0px"
+        }
+
+        if(targetElement.offsetTop + targetElement.offsetHeight + 2 * targetBorderWidth > parentDOMRect.height){
+            targetElement.style.top = parentDOMRect.height - targetElement.offsetHeight - 2 * targetBorderWidth + "px"
+        }
+        if(targetElement.offsetLeft + targetElement.offsetWidth + 2 * targetBorderWidth > parentDOMRect.width){
+            targetElement.style.left = parentDOMRect.width - targetElement.offsetWidth - 2 * targetBorderWidth + "px"
+        }
+    }
 }
 
 /**
