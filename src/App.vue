@@ -1,26 +1,32 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
-import {vGrag} from './units/gragDirective'
-
+import {vDrag} from './units/dragDirective'
 
 </script>
 
 <template>
-  <HelloWorld v-grag:limit="0.2"/>
-  <HelloWorld v-grag></HelloWorld>
-  <HelloWorld v-grag></HelloWorld>
-  <HelloWorld v-grag></HelloWorld>
+<div class="box">
+  <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/>
+  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/> -->
+  <!-- <HelloWorld v-drag="{limit: 1, classList:['draging'], dragArea:'parent'}"/> -->
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+  margin: 0;
+  padding: 0;
+}
+.box{
+  width: 700px;
+  height: 500px;
+  border: solid black 20px;
+  position: absolute;
+  margin: 0 auto;
+  left: 50px;
+}
+.draging{
+  opacity: 0.5;
+  cursor: grab;
 }
 </style>

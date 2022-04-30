@@ -1,1 +1,1 @@
-import { Directive } from "vue";
+import { Directive } from "vue"

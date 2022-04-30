@@ -2,14 +2,13 @@
 </script>
 
 <template>
-  <div class="window-box">
-
-  </div>
+  <div class="window-box"></div>
 </template>
 
 <style scoped>
   .window-box{
-    border: 5px solid black;
+    box-sizing: border-box;
+    border: 20px solid black;
     width: 300px;
     height: 300px;
   }
