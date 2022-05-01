@@ -54,11 +54,11 @@ function mouseMoveHandle (event: MouseEvent):void {
             targetElement.style.left = "0px"
         }
 
-        if(targetElement.offsetTop + targetElement.offsetHeight + 2 * targetBorderWidth > parentDOMRect.height){
-            targetElement.style.top = parentDOMRect.height - targetElement.offsetHeight - 2 * targetBorderWidth + "px"
+        if(targetElement.offsetTop + targetElement.offsetHeight> parentDOMRect.height - 2 * parentBorderWidth){
+            targetElement.style.top = parentDOMRect.height - 2 * parentBorderWidth - targetElement.offsetHeight + "px"
         }
-        if(targetElement.offsetLeft + targetElement.offsetWidth + 2 * targetBorderWidth > parentDOMRect.width){
-            targetElement.style.left = parentDOMRect.width - targetElement.offsetWidth - 2 * targetBorderWidth + "px"
+        if(targetElement.offsetLeft + targetElement.offsetWidth > parentDOMRect.width - 2 * parentBorderWidth){
+            targetElement.style.left = parentDOMRect.width - 2 * parentBorderWidth - targetElement.offsetWidth + "px"
         }
     }
 }
@@ -93,6 +93,7 @@ type bindingValueType = {
     limit?: number,
     dragArea?: string
 }
+
 export const vDrag: Directive = {
     created(el: HTMLElement, binding: DirectiveBinding){
         let value: bindingValueType = binding.value ? binding.value : {}
