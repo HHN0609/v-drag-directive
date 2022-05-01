@@ -7,8 +7,7 @@
 
 <style scoped>
   .window-box{
-    box-sizing: border-box;
-    border: 20px solid black;
+    border: 1px solid black;
     width: 300px;
     height: 300px;
   }
