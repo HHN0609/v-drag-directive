@@ -1,16 +1,41 @@
-# Vue 3 + TypeScript + Vite
+# How to install ? 
+~~~
+npm install simple-vue-drag-directive
+~~~ 
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# How to use ? 
+After installing the package, you can import as ***ES Module***: 
+~~~html
+<script setup>
+    import { vDrag } from 'simple-vue-drag-directive'
+</script>
 
-## Recommended IDE Setup
+<template>
+    <your-component v-drag></your-component>
+</template>
+~~~
+And now you can drag ``<your-compnonet></your-compnonet>`` everywhere! 
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+All right, if you want more function, you can also give ``v-drag`` some value. Just like the following. 
 
-## Type Support For `.vue` Imports in TS
+~~~js
+v-drag="{limit: 0.5, classList:['draging'], dragArea:'parent'}"
+~~~ 
+| property | value's type | default value | description | 
+|----|----|------|-----|
+|limit|number|1|This proporty is design to narrow down the range within which an ``mousedown`` event is useful. Assume the element with ``v-drag`` has a height of ``100px`` ans a width of ``100px`` and you set ``limit`` as ``0.5``, the area which can listen your ``mousedown`` event will be narrow down to ``20px(height)`` x ``100px(width)``.| 
+|classList|string[ ]|[ ]|Classes in the classList will be added to the dragging element, and will be removed when ``mouseup`` event emits.| 
+|dragArea|"parent" or ""|""|If ``dragArea="parent"``, the element with ``v-drag`` can not move outside the parent element. If you don't set this property you can drag the element everywhere.|
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+# About the project dictionary 
+the directive code is in the ``root/src/directive`` 
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+# How to start ther demo ? 
+~~~
+npm run dev
+~~~ 
+
+If you have any good ideas, welcome to fork the project.  
+
+My email address is 1446909703@qq.com.
